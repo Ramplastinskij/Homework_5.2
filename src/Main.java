@@ -13,11 +13,19 @@ public class Main {
 
         //Task 2
         System.out.println();
-        int[] expensesWeek = {1500, 2000, 1200, 1800, 2500};
-        int min = expensesWeek[0];
-        int max = expensesWeek[expensesWeek.length - 1];
-        System.out.println("Минимальная сумма трат за неделю составила " + min + " рублей.");
-        System.out.println("Максимальная сумма трат за неделю составила " + max + " рублей.");
+        int[] expensesWeeks = {3500, 10000, 5200, 2800, 10500};
+        int min = expensesWeeks[0];
+        int max = expensesWeeks[0];
+        for (int expense : expensesWeeks) {
+            if (expense < min) {
+                min = expense;
+            }
+            if (expense > max) {
+                max = expense;
+            }
+        }
+        System.out.println("Минимальная сумма трат за неделю составила " + min + " рублей." +
+                "Максимальная сумма трат за неделю составила " + max + " рублей.");
 
         //Task 3
         System.out.println();
@@ -32,12 +40,15 @@ public class Main {
         //Task 4
         System.out.println();
         char[] reverseFullName = {'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
-        for (int i = 0; i < reverseFullName.length / 2; i++) {
-            char temp = reverseFullName[i];
-            reverseFullName[i] = reverseFullName[reverseFullName.length - 1 - i];
-            reverseFullName[reverseFullName.length - 1 - i] = temp;
+        int left = 0;
+        int right = reverseFullName.length - 1;
+        while (left < right) {
+            char temp = reverseFullName[left];
+            reverseFullName[left] = reverseFullName[right];
+            reverseFullName[right] = temp;
+            left++;
+            right--;
         }
-        String fullName = new String(reverseFullName);
-        System.out.println(fullName);
+        System.out.println(new String(reverseFullName));
     }
 }
